@@ -62,8 +62,7 @@ def root():
         distance = np.linalg.norm(features1 - features2)
 
         print("Calculating Prediction")
-        # prediction = 'True' if ensembleSVC.predict((features1-features2)**2, 1) == 0 else 'False'
-        prediction = 'True' if text2[1] == 'h' else 'False'
+        prediction = 'True' if ensembleSVC.predict((features1-features2)**2, 1) == 0 else 'False'
 
         print("Returning Data")
         data = [dummy_times, str(features1), str(features2), distance, prediction, text1, text2]
