@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <title>Datastore and Firebase Auth Example</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <h1>Pairwise Stylometry Comparison</h1>
+
+  <h2>Compare Texts:</h2>
+
+  <br \>
+  <textarea name="text1" form="compareForm" cols="100" rows="30">{{ data[5] }}</textarea>
+  <textarea name="text2" form="compareForm" cols="100" rows="30">{{ data[6] }}</textarea>
+
+  <form method="POST" id="compareForm">
+    <input type="submit">
+  </form>
+
+  <h3>Output Vectors:</h3>
+  {{ data[1] }}
+  <br \>
+  {{ data[2] }}
+  <h3>Vector Distance:</h3>
+  {{ data[3] }}
+  <h3>Prediction:</h3>
+  {{ data[4] }}
+
+</body>
+</html>

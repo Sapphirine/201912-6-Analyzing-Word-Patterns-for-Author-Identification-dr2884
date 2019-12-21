@@ -1,0 +1,4 @@
+from .CharacterBasedFeaturesExtractor import CharacterBasedFeaturesExtractor
+from .WordBasedFeaturesExtractor import WordBasedFeaturesExtractor
+from .SyntacticFeaturesExtractor import SyntacticFeaturesExtractor
+from .CompleteFeaturesExtractor import CompleteFeaturesExtractor

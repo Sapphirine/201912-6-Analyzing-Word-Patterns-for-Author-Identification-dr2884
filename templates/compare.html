@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <title>Datastore and Firebase Auth Example</title>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <h1>Compare Two Authors</h1>
+
+  <h2>Select Authors</h2>
+  <br \>
+  <form method="POST" id="selectAuthorForm">
+    Author 1:
+    <select name="author1">
+      {% for author in data[0]%}
+        <option value="{{author}}">{{author}}</option>
+      {% endfor %}
+    </select>
+    &nbsp;&nbsp;
+    Author 2:
+    <select name="author2">
+      {% for author in data[0]%}
+        <option value="{{author}}">{{author}}</option>
+      {% endfor %}
+    </select>
+    <br \>
+    <input type="submit">
+  </form>
+  <br \>
+
+  <h3>Comparison:</h3>
+
+  <div id="columnDiv">
+    <div id='authorList1' class="authorList" style="width: 45%; height: 50%; float:left;">
+      <h4>{{ data[1] }}: {{ data[2] }}</h4>
+      <ul>
+        {% for title in data[3]%}
+          <li>{{title}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div id='authorList2' class="authorList" style="width: 45%; height: 50%; float:right;">
+      <h4>{{ data[4] }}: {{ data[5] }}</h4>
+      <ul>
+        {% for title in data[6]%}
+          <li>{{title}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <br \>
+
+  <div id='authorPlot'></div>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="{{ url_for('static', filename='authorPlot.js') }}"></script>
+  <script>
+      var Data= {{ data[7] | safe}}
+      authorPlot('#authorPlot', Data)
+  </script>
+
+</body>
+</html>
